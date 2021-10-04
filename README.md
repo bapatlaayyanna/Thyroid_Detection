@@ -3,7 +3,8 @@
 
 A classification methodology to predict the type of Thyroid based on the given training data.
 
-## Ex: 
+Ex: 
+
 1.negative,
 2.compensated_hypothyroid, 
 3.primary_hypothyroid, 
