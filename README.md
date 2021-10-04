@@ -1,7 +1,7 @@
 
 # Thyroid Detection Using Machine Learning
 
-A classification methodology to predict the type of Thyroid based on the given training data.
+A classification methodology to predict the type of Thyroid based on the given data.
 
 Ex: 
 
