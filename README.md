@@ -11,7 +11,8 @@ A classification methodology to predict the type of Thyroid based on the given t
 
 ## Architecture
 
-https://ibb.co/HGccrzb
+![image](https://user-images.githubusercontent.com/47603420/135798450-56c8f1af-7a0a-4747-ad12-0a0e394cb1a4.png)
+
 
 
 ## Data Description
@@ -87,42 +88,42 @@ Apart from prediction files, we also require a "schema" file from client which c
 Name of the files, Length of Date Stamp in FileName, Length of Time Stamp in FileName, Number of Columns, Name of the Columns and their data types.
 
 ## Data Validation
-We validate the name of the files based on the given name in the schema file. We have created a regex expression as per the name given in the schema file to use it for our validation. After validating the pattern in the name, we check the length of date in the file name & length of time in the file name. If all the values are as per the schema file, we move these files to "Good_Data Folder" else we move such files to "Bad_Data Folder."  
+We validate the name of the files based on the given name in the schema file. We have created a regex expression as per the name given in the schema file to use it for our validation. After validating the pattern in the name, we check the length of date in the file name & length of time in the file name. If all the values are as per the schema file, we move these files to "Good_Data Folder" else we move such files to "Bad_Data Folder." 
 
 1) ## Name Validation- 
 We validate the name of the files based on the given name in the schema file. We have created a regex expression as per the name given in the schema file to use for our validation. After validating the pattern in the name, we check the length of date in the file name & length of time in the file name. If all the values are as per the requirement, we move such files to "Good_Data Folder" else we move such files to "Bad_Data Folder."
 
 2) ## Number of Columns - 
-We validate the number of columns present in the files, if it doesn't match with the value given in the schema file then the file is moved to "Bad_Data Folder". 
+We validate the number of columns present in the files as per the value given in the schema file. If it doesn't match with the value given in the schema file, then the file is moved to "Bad_Data Folder."
 
 3) ## Data type of columns - 
-The data type of columns is given in the schema file. This is validated when we insert the files into Database. If data type is wrong then the file is moved to "Bad_Data Folder". 
+Data type of the columns is given in the schema file. This is validated when we insert the files into Database. If the datatype is wrong, then the file is moved to "Bad_Data Folder".
 
 4) ## Null values in columns - 
-If any of the columns in a file have all the values as NULL or missing, we discard such file and move it to "Bad_Data Folder".  
+If any of the columns in a file have all the values as NULL or missing, we discard such file and move it to "Bad_Data Folder".
 
 ## Data Transformation
-converts all the columns with string data type such that each value for that column is enclosed in quotes.
+converts all the columns with string data type so that each value for that column is enclosed in quotes.
 Data Insertion in Database 
 
 1) ## Database Creation and connection - 
-Create database with the given name passed. If the database is already created, open the connection to the database. 
+Create a database with the given name. If the database is already created, open the connection to the database. 
 
 2) ## Table creation in the database - 
-Table with name - "Good_Raw_Data", is created in the database for inserting the files in the "Good_Data Folder" based on the column names and datatype in the schema file. 
+Create a Table with name - "Good_Raw_Data" in database for inserting the files from the "Good_Data  Folder" based on given column names and data types in the schema file. 
 
 3) ## Insertion of files in the table - 
-All the files in the "Good_Data  Folder" are inserted in the above-created table. If any file has invalid data type in any of the columns, the file is not loaded in the table and is moved to "Bad_Data Folder".
+All the files in the "Good_Data Folder" are inserted in the above-created table. If any file has invalid data type in any of the columns, the file is not loaded in the table and is moved to "Bad_Data Folder".
 
 ## Prediction 
 
 1) ## Data Export from Db - 
-The data in the stored database is exported as a CSV file for prediction.
+The data in a stored database is exported as a CSV file for model training.
 
 2) ## Data Pre-Processing   
-   a) Drop columns not useful for training the model. Such columns were selected while doing the EDA.
+   a) Drop the columns which not useful for training the model. These columns were selected while doing the EDA.
    
-   b) Replace the invalid values with numpy “np.nan” so we can use imputer on such values.
+   b) Replace the invalid values with numpy “np.nan” so that we can use imputer on such values.
    
    c) Encode the categorical values
    
@@ -151,9 +152,19 @@ https://git-scm.com/download/win
 4. Run "pip freeze>requirements.txt"
 Requirements.txt file consists of all the packages that you need to deploy the app in the cloud.
 
+![image](https://user-images.githubusercontent.com/47603420/135798516-8e9ba5cc-eb06-4dec-a908-f3857f88dea3.png)
+
+main.py is the entry point of our application, where the flask server starts. 
+
+![image](https://user-images.githubusercontent.com/47603420/135798565-4124da43-3a7f-4688-a6b4-eef376f415ac.png)
+
+
 5. Create an empty "Procfile" and write content “web: gunicorn main:app” inside and save it.
 
 Procfile :- It contains the entry point to the app.
+
+![image](https://user-images.githubusercontent.com/47603420/135798571-4a8f5624-914b-4856-9087-e2e7a3e803b5.png)
+
 
 6. Login to Github & create a Repository in Github and 
 run below commands to load the project into Git.
@@ -184,6 +195,15 @@ heroku git:remote -a thyroiddetection1
 
 git push heroku main
 
+
+## Training - Sending training request from Postman
+  
+  ![image](https://user-images.githubusercontent.com/47603420/135798640-4ae471a6-3628-4738-9c93-a05f70be795e.png)
+
+
+## Prediction - Sending prediction request from Postman
+  
+  ![image](https://user-images.githubusercontent.com/47603420/135798691-bcd824bb-4e30-4e28-9b29-9d917b947b39.png)
 
 
   
