@@ -151,6 +151,7 @@ https://git-scm.com/download/win
 3. Run  "pip install gunicorn" in anaconda command prompt
 
 4. Run "pip freeze>requirements.txt"
+
 Requirements.txt file consists of all the packages that you need to deploy the app in the cloud.
 
 ![image](https://user-images.githubusercontent.com/47603420/135798516-8e9ba5cc-eb06-4dec-a908-f3857f88dea3.png)
@@ -199,12 +200,14 @@ git push heroku main
 
 ## Training - Sending training request from Postman
   
-  ![image](https://user-images.githubusercontent.com/47603420/135798640-4ae471a6-3628-4738-9c93-a05f70be795e.png)
+  ![image](https://user-images.githubusercontent.com/47603420/135799118-ec6ef822-66a5-4c14-9cd5-c5fc9a81bcd3.png)
+
 
 
 ## Prediction - Sending prediction request from Postman
   
-  ![image](https://user-images.githubusercontent.com/47603420/135798691-bcd824bb-4e30-4e28-9b29-9d917b947b39.png)
+  ![image](https://user-images.githubusercontent.com/47603420/135799145-93733fd3-8884-4a96-845e-d31c24a6cca0.png)
+
 
 
   
